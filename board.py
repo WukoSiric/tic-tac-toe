@@ -1,7 +1,7 @@
 from array import *
 
 class Board: 
-    grid = [[" "] * 3]
+    grid = [" ", " ", " "] * 3
     def __init__(self): 
         pass
 
@@ -15,12 +15,21 @@ class Board:
         else:
             return "Error: Wrong player_id"
         
-        row = int(position / 3)
-        col = int(position % 3)
-        self.grid[row][col] = player_id
+        self.grid[position] = player_id
         return "Succesfully modified"
-    
-    def reset_board(self): 
+
+    def reset_board(self):
         for i in range(3): 
             for j in range(3): 
                 self.grid[i][j] = " "
+
+    def is_occupied(self, position) -> bool: 
+        if self.grid[position] == " ":
+            return False
+        return True
+    
+    def has_winner(): 
+        # [] [] []
+        # [] [] []
+        # [] [] []
+        pass
