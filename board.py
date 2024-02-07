@@ -19,10 +19,17 @@ class Board:
         col = int(position % 3)
         self.grid[row][col] = player_id
         return "Succesfully modified"
+    
+    def reset_board(self): 
+        for i in range(3): 
+            for j in range(3): 
+                self.grid[i][j] = int(0)
 
 def main(): 
     board = Board() 
     print(board.modify_board(6, 1))
+    print(board.grid)
+    board.reset_board() 
     print(board.grid)
 
 if __name__ == "__main__": 
