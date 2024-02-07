@@ -1,7 +1,7 @@
 from array import *
 
 class Board: 
-    grid = [[0, 0, 0],[0, 0, 0],[0, 0, 0]]
+    grid = [[" "] * 3]
     def __init__(self): 
         pass
 
@@ -10,7 +10,7 @@ class Board:
             return "Error: Not an integer"
         if position > 10 or position < 0: 
             return "Error: Invalid position"
-        if player_id == int(1) or player_id == int(2):
+        if player_id == "X" or player_id == "O":
             pass
         else:
             return "Error: Wrong player_id"
@@ -23,14 +23,4 @@ class Board:
     def reset_board(self): 
         for i in range(3): 
             for j in range(3): 
-                self.grid[i][j] = int(0)
-
-def main(): 
-    board = Board() 
-    print(board.modify_board(6, 1))
-    print(board.grid)
-    board.reset_board() 
-    print(board.grid)
-
-if __name__ == "__main__": 
-    main()
+                self.grid[i][j] = " "
