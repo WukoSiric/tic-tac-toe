@@ -28,8 +28,9 @@ class Board:
             return False
         return True
     
-    def has_winner(): 
-        # [] [] []
-        # [] [] []
-        # [] [] []
+    def has_winner() -> (bool, str): 
+        # do dfs to check if has won
+        # [] [] [] 
+        # [] [] [] 
+        # [] [] [] 
         pass
