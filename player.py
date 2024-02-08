@@ -7,11 +7,10 @@ class Player:
 
     def make_move(self, position: int, board: Board) -> None: 
         print("Make your move: ")
-        position = input()
-        position = int(position)
+        position = int(input())
 
         if not board.is_occupied(position):
-            board.modify_board(position, "X")
-        else: 
             print("Position is occupied")
             return 
+        board.modify_board(position, "X")
+        print("modified board")
