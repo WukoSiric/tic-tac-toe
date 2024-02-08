@@ -7,18 +7,17 @@ class Board:
 
     def modify_board(self, position, player_id):
         if not position.is_integer():
-            return "Error: Not an integer"
+            raise Exception("Error: Not an integer")
         if position > 10 or position < 0: 
-            return "Error: Invalid position"
+            raise Exception("Error: Invalid position")
         if player_id == "X" or player_id == "O":
             pass
         else:
-            return "Error: Wrong player_id"
+            raise Exception("Error: Wrong player_id")
         
         self.grid[position] = player_id
-        return "Succesfully modified"
 
-    def reset_board(self):
+    def reset_board(self):  
         for i in range(9): 
             self.grid[i] = " "
 
