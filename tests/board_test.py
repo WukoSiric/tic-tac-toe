@@ -11,7 +11,18 @@ class BoardTest(unittest.TestCase):
         pass
 
     def test_modify_board(self): 
-        pass
+        with self.assertRaises(TypeError): 
+            self.board.modify_board(1.1, "X")
+        with self.assertRaises(IndexError): 
+            self.board.modify_board(100, "X")
+        with self.assertRaises(IndexError): 
+            self.board.modify_board(-1, "X")
+        with self.assertRaises(IndexError): 
+            self.board.modify_board(-100, "X")
+        with self.assertRaises(IndexError): 
+            self.board.modify_board(10, "X")
+        with self.assertRaises(TypeError): 
+            self.board.modify_board("Invalid player_id")
 
     def test_reset_board(self): 
         self.board.modify_board(3, "X")

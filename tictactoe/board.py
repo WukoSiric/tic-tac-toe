@@ -7,13 +7,11 @@ class Board:
 
     def modify_board(self, position, player_id):
         if not position.is_integer():
-            raise Exception("Error: Not an integer")
+            raise Exception(TypeError)
         if position > 10 or position < 0: 
-            raise Exception("Error: Invalid position")
-        if player_id == "X" or player_id == "O":
-            pass
-        else:
-            raise Exception("Error: Wrong player_id")
+            raise Exception(IndexError)
+        if player_id != "X" or player_id != "O":
+            raise Exception("Invalid player_id")
         
         self.grid[position] = player_id
 
