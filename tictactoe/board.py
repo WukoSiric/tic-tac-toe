@@ -28,11 +28,6 @@ class Board:
         return True
     
     def has_winner(self) -> (str): 
-        #   0  1  2
-        # 0 [] [] []
-        # 1 [] [] []
-        # 2 [] [] []
-
         # check rows
         for i in range(0, 9, 3):
             if self.grid[i] == " ": 
