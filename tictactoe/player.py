@@ -6,8 +6,8 @@ class Player:
         pass
 
     def make_move(self, board: Board) -> None: 
-        print("Make your move: ")
-        
+        print("Make your move (Enter 0 to 9): ")
+
         while True: 
             position = int(input())
             if board.is_occupied(position):
