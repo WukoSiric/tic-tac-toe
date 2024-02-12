@@ -5,6 +5,10 @@ class Board:
     def __init__(self): 
         pass
 
+    def display_board(self): 
+        for i in range(0, 9, 3):
+            print(self.grid[i] + "----" + self.grid[i+1] + "----" + self.grid[i+2])
+
     def modify_board(self, position, player_id):
         if not position.is_integer():
             raise TypeError
@@ -24,12 +28,12 @@ class Board:
             return False
         return True
     
-    def has_winner(self) -> (str): 
+    def has_winner(self) -> str: 
         # check rows
         for i in range(0, 9, 3):
             if self.grid[i] == " ": 
                 continue
-            if self.grid[i] == self.grid[i+1] == self.grid[i+1]: 
+            if self.grid[i] == self.grid[i+1] == self.grid[i+1+1]: 
                 return self.grid[i]
 
         # check columns
@@ -44,3 +48,9 @@ class Board:
             return self.grid[0]
 
         return None
+    
+    def is_full(self) -> bool:
+        for i in range(9): 
+            if self.grid[i] == " ": 
+                return False
+        return True
