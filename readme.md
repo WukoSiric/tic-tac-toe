@@ -4,7 +4,7 @@ Simple implementation of Tic Tac Toe to help me get proficient with Python. The 
 
 ## Task List
 - [x] Implement board.py unit testing  
-- [ ] Implement enemy logic (random for now) 
-- [ ] Create working game loop  
+- [x] Implement enemy logic (random for now) 
+- [x] Create working game loop  
 - [ ] Improve enemy AI with Minimax algorithm 
 - [ ] Implement pruning for enemy AI 
