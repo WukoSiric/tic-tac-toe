@@ -40,7 +40,7 @@ class Board:
                 return self.grid[i]
             
         # check diagonal 
-        if self.grid[0] == self.grid[4] == self.grid[8]: 
+        if self.grid[0] != " " and self.grid[0] == self.grid[4] == self.grid[8]: 
             return self.grid[0]
 
         return None
