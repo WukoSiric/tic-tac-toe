@@ -1,10 +1,8 @@
 from board import Board
 from player import Player
 from enemy import Enemy
+from printer import clear_screen, display_board, display_slot
 import os
-
-def clear_screen(): 
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 def main(): 
     board = Board() 
@@ -12,19 +10,19 @@ def main():
     enemy = Enemy()
     game_over = False
 
-# Start while loop
+    # Start while loop
     print("Setting up board!")
     board.reset_board() 
-    board.display_board()
+    display_board(board)
 
     while not board.is_full() and board.has_winner() == None:
         clear_screen()
-        board.display_board()
+        display_board(board)
         player.make_move(board)
         enemy.make_move(board)
 
     clear_screen()
-    board.display_board()
+    display_board(board)
     winner = board.has_winner()
     if winner == None:
         print("No one has won... ")
