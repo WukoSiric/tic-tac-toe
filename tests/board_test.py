@@ -7,7 +7,7 @@ class BoardTest(unittest.TestCase):
         self.board = Board() 
     
     def tearDown(self): 
-        pass
+        self.board.reset_board()
 
     def test_modify_board_exceptions(self): 
         with self.assertRaises(TypeError): 
