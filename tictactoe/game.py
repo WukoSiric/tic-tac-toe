@@ -1,8 +1,7 @@
 from board import Board
 from player import Player
 from enemy import Enemy
-from printer import clear_screen, display_board, display_slot
-import os
+from printer import clear_screen, display_board
 
 def main(): 
     board = Board() 
