@@ -27,8 +27,10 @@ def main():
     display_board(board)
     winner = board.has_winner()
     if winner == None:
+        print("GAME OVER")
         print("No one has won... ")
         return
+    print("GAME OVER")
     print(winner + " wins the round!")
 
 if __name__ == "__main__": 
