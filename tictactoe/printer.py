@@ -8,7 +8,7 @@ def display_board(board: Board):
     print(" **** BOARD ****")
     print()
     for i in range(0, 9, 3):
-        print("     " + board.display_slot(board.grid[i]) + "  " + board.display_slot(board.grid[i+1]) + "  " + board.display_slot(board.grid[i+2]))
+        print("     " + display_slot(board.grid[i]) + "  " + display_slot(board.grid[i+1]) + "  " + display_slot(board.grid[i+2]))
     print()
 
 def display_slot(grid_position: str) -> str: 
