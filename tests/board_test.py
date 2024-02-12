@@ -25,6 +25,12 @@ class BoardTest(unittest.TestCase):
         with self.assertRaises(IndexError): 
             self.board.modify_board(position=10, player_id="X")
 
+    def test_modify_board_works(self): 
+        self.board.modify_board(0, "X")
+        self.assertEqual(self.board.grid[0], "X")
+        self.board.modify_board(1, "O")
+        self.assertEqual(self.board.grid[1], "O")
+
     def test_reset_board(self): 
         self.board.modify_board(3, "X")
         self.board.reset_board() 
