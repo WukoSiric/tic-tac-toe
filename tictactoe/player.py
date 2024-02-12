@@ -11,7 +11,7 @@ class Player:
         while True: 
             position = int(input())
             if board.is_occupied(position):
-                print("Position is occupied")
+                print("Position is occupied. Try again:")
                 continue 
             board.modify_board(position, "X")
             return
