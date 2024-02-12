@@ -11,3 +11,9 @@ class Enemy:
             if not board.is_occupied(chosen_position): 
                 board.modify_board(chosen_position, "O")
                 break
+
+    # Minimax functions 
+    # def terminal_state
+    # def player_turn
+    # def get_actions
+    # def get_Value
