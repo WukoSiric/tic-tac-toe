@@ -5,12 +5,13 @@ class Player:
     def __init__(self): 
         pass
 
-    def make_move(self, position: int, board: Board) -> None: 
+    def make_move(self, board: Board) -> None: 
         print("Make your move: ")
-        position = int(input())
-
-        if not board.is_occupied(position):
-            print("Position is occupied")
-            return 
-        board.modify_board(position, "X")
-        print("modified board")
+        
+        while True: 
+            position = int(input())
+            if board.is_occupied(position):
+                print("Position is occupied")
+                continue 
+            board.modify_board(position, "X")
+            return
