@@ -52,7 +52,6 @@ class BoardTest(unittest.TestCase):
         self.board.modify_board(0, "X")
         self.board.modify_board(4, "X")
         self.board.modify_board(8, "X")
-
         self.assertEqual(self.board.has_winner(), "X") 
 
     def test_has_winner_horizontal(self): 

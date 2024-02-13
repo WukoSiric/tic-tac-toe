@@ -24,26 +24,21 @@ class Board:
             return False
         return True
     
-    def has_winner(self) -> str: 
-        # check rows
-        for i in range(0, 9, 3):
-            if self.grid[i] == " ": 
-                continue
-            if self.grid[i] == self.grid[i+1] == self.grid[i+1+1]: 
-                return self.grid[i]
-
-        # check columns
+    def has_winner(self) -> str:
+        # Check rows and columns
         for i in range(3):
-            if self.grid[i] == " ": 
-                continue
-            if self.grid[i] == self.grid[i+3] == self.grid[i+3+3]: 
-                return self.grid[i]
-            
-        # check diagonal 
-        if self.grid[0] != " " and self.grid[0] == self.grid[4] == self.grid[8]: 
+            if self.grid[i] != " " and self.grid[i] == self.grid[i+3] == self.grid[i+3+3]:
+                return self.grid[i]  # Check columns
+
+            if self.grid[i*3] != " " and self.grid[i*3] == self.grid[i*3+1] == self.grid[i*3+2]:
+                return self.grid[i*3]  # Check rows
+
+        # Check diagonal
+        if self.grid[0] != " " and self.grid[0] == self.grid[4] == self.grid[8]:
             return self.grid[0]
 
         return None
+
     
     def is_full(self) -> bool:
         for i in range(9): 
