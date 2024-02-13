@@ -1,9 +1,11 @@
-from tictactoe.board import Board
+from board import Board
 import random
 import copy
+import math 
 
 class Enemy:
     def __init__(self): 
+        self.best_move = None
         pass 
 
     def make_move(self, board: Board) -> None:
@@ -12,8 +14,36 @@ class Enemy:
             if not board.is_occupied(chosen_position): 
                 board.modify_board(chosen_position, "O")
                 break
+    
+    def make_move_minimax(self, board: Board) -> None: 
+        result = self.minimax(board) 
+        print(result)
+        board.modify_board(self.best_move, "O") 
 
     # Minimax functions 
+    def minimax(self, board: Board) -> int:
+        if self.is_terminal_state(board):
+            return self.get_value(board)
+        
+        if self.get_player_turn(board) == "O": #max player 
+            value = -math.inf 
+            possible_boards = self.get_possible_boards(board, "O") 
+            for possible_board in possible_boards: 
+                current_value = self.minimax(possible_board)
+                if current_value > value: 
+                    value = current_value
+                    self.best_move = self.find_difference(board, possible_board)
+            return value
+        
+        if self.get_player_turn(board) == "X": #min player
+            value = math.inf
+            possible_boards = self.get_possible_boards(board, "X") 
+            for possible_board in possible_boards:
+                current_value = min(value, self.minimax(possible_board))
+                if current_value < value: 
+                    value = current_value
+            return value
+
     def is_terminal_state(self, board: Board) -> bool:
         if board.is_full(): 
             return True 
@@ -46,5 +76,12 @@ class Enemy:
             return -1
         elif board.has_winner() == "O": 
             return 1 
+        elif board.is_full(): 
+            return 0
         else: 
             return 0
+        
+    def find_difference(self, board: Board, board2: Board) -> int: 
+        for i in range(9): 
+            if board.grid[i] != board2.grid[i]: 
+                return i

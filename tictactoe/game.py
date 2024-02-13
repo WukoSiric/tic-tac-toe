@@ -20,8 +20,8 @@ def main():
         player.make_move(board)
 
         if not board.is_full():
-            enemy.make_move(board)
-
+            # enemy.make_move(board)
+            enemy.make_move_minimax(board)
 
     clear_screen()
     display_board(board)
