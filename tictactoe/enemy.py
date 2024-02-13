@@ -1,7 +1,6 @@
-from board import Board
+from tictactoe.board import Board
 import random
 import math 
-from enum import Enum
 
 class Enemy:
     def __init__(self): 
@@ -22,7 +21,7 @@ class Enemy:
             return True
         return False
     
-    def player_turn(self, board: Board) -> str:
+    def get_player_turn(self, board: Board) -> str:
         x_count = board.grid.count("X")
         o_count = board.grid.count("O")
 
@@ -31,9 +30,16 @@ class Enemy:
         else:
             return "O"
 
-    def get_actions(self, board: Board, player: str) -> list[str]:
-        # TODO - return list of possible board moves
-        pass
+    def get_possible_actions(self, board: Board, player: str) -> list[Board]:
+        possible_boards = [] 
+        for i in range(9): 
+            if board.is_occupied(i): 
+                continue
+            new_board = Board() 
+            board.grid = board.grid.copy() 
+            new_board.modify_board(i, player)
+            possible_boards.append(new_board)
+        return possible_boards
         
     def get_value(self, board: Board) -> int:
         if board.has_winner() == "X": 
