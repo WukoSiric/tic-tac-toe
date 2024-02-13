@@ -17,7 +17,9 @@ class Enemy:
     
     def make_move_minimax(self, board: Board) -> None: 
         result = self.minimax(board) 
-        print(result)
+        if board.grid == ["X", " ", " ", " ", " ", " ", " ", " ", " "]:
+            board.modify_board(4, "O") 
+            return
         board.modify_board(self.best_move, "O") 
 
     # Minimax functions 
