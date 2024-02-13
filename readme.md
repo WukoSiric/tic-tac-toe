@@ -6,8 +6,7 @@ Simple implementation of Tic Tac Toe to help me get proficient with Python. The 
 - [x] Implement board.py unit testing  
 - [x] Implement enemy logic (random for now) 
 - [x] Create working game loop  
-- [ ] Improve enemy AI with Minimax algorithm 
-- [ ] Implement pruning for enemy AI 
+- [x] Improve enemy AI with Minimax algorithm 
 
 ## Automated Testing 
 Unit testing is implemented for most a number of the project's classes. These can be run by navigating to the root directory of the project and entering `pytest` into the console. 
