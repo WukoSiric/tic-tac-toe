@@ -30,7 +30,7 @@ class Enemy:
         else:
             return "O"
 
-    def get_possible_actions(self, board: Board, player: str) -> list[Board]:
+    def get_possible_boards(self, board: Board, player: str) -> list[Board]:
         possible_boards = [] 
         for i in range(9): 
             if board.is_occupied(i): 
