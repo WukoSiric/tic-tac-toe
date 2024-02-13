@@ -1,5 +1,6 @@
 from tictactoe.board import Board
 import random
+import copy
 import math 
 
 class Enemy:
@@ -36,7 +37,7 @@ class Enemy:
             if board.is_occupied(i): 
                 continue
             new_board = Board() 
-            board.grid = board.grid.copy() 
+            new_board.grid = copy.copy(board.grid)
             new_board.modify_board(i, player)
             possible_boards.append(new_board)
         return possible_boards
