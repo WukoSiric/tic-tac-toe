@@ -8,7 +8,7 @@ class Enemy:
         self.best_move = None
         pass 
 
-    def make_move(self, board: Board) -> None:
+    def make_random_move(self, board: Board) -> None:
         while True: 
             chosen_position = random.randrange(0, 9)
             if not board.is_occupied(chosen_position): 
