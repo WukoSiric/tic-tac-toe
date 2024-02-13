@@ -2,6 +2,7 @@ from board import Board
 from player import Player
 from enemy import Enemy
 from printer import clear_screen, display_board
+import random
 
 def main(): 
     board = Board() 
@@ -18,10 +19,12 @@ def main():
         clear_screen()
         display_board(board)
         player.make_move(board)
-
         if not board.is_full():
-            # enemy.make_move(board)
-            enemy.make_move_minimax(board)
+            chance = random.random()
+            if chance > 0.6: 
+                enemy.make_move_minimax(board)
+            else: 
+                enemy.make_random_move(board)
 
     clear_screen()
     display_board(board)
