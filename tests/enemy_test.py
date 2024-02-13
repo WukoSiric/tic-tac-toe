@@ -21,7 +21,7 @@ class EnemyTest(unittest.TestCase):
         self.board.modify_board(4, "O")
         self.assertEqual(self.enemy.get_player_turn(self.board), "X")
 
-    def test_get_possible_actions_1(self): 
+    def test_get_possible_boards_1(self): 
         self.board.modify_board(0, "X")
         self.board.modify_board(1, "O")
         self.board.modify_board(2, "X")
@@ -34,7 +34,7 @@ class EnemyTest(unittest.TestCase):
         self.assertEqual(len(possible_boards), 1)
         self.assertEqual(possible_boards[0].grid, ["X", "O", "X", "X", "O", "O", "O", "X", "X"])
 
-    def test_get_possible_actions_2(self): 
+    def test_get_possible_boards_2(self): 
         self.board.modify_board(0, "X")
         self.board.modify_board(1, "O")
         self.board.modify_board(2, "X")
