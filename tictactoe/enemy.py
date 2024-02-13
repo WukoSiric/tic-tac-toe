@@ -15,7 +15,7 @@ class Enemy:
                 break
 
     # Minimax functions 
-    def terminal_state(self, board: Board) -> bool:
+    def is_terminal_state(self, board: Board) -> bool:
         if board.is_full(): 
             return True 
         if board.has_winner() == "X" or board.has_winner() == "O": 
