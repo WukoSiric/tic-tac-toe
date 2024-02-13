@@ -31,7 +31,8 @@ class Enemy:
         else:
             return "O"
 
-    def get_actions(self, board: Board):
+    def get_actions(self, board: Board, player: str) -> list[str]:
+        # TODO - return list of possible board moves
         pass
         
     def get_value(self, board: Board) -> int:
