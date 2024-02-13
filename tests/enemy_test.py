@@ -34,7 +34,22 @@ class EnemyTest(unittest.TestCase):
         self.assertEqual(len(possible_boards), 1)
         self.assertEqual(possible_boards[0].grid, ["X", "O", "X", "X", "O", "O", "O", "X", "X"])
 
-    def test_get_possible_boards_2(self): 
+    def test_possible_boards_2(self): 
+        self.board.modify_board(0, "X")
+        self.board.modify_board(1, "O")
+        self.board.modify_board(2, "X")
+        self.board.modify_board(3, "X")
+        self.board.modify_board(4, "O")
+        self.board.modify_board(5, "O")
+        self.board.modify_board(8, "X")
+        possible_boards = self.enemy.get_possible_boards(self.board, "O")
+        board1 = ["X", "O", "X", "X", "O", "O", "O", " ", "X"]
+        board2 = ["X", "O", "X", "X", "O", "O", " ", "O", "X"]
+        self.assertEqual(len(possible_boards), 2)
+        self.assertEqual(possible_boards[0].grid, board1)
+        self.assertEqual(possible_boards[1].grid, board2)
+
+    def test_get_possible_boards_3(self): 
         self.board.modify_board(0, "X")
         self.board.modify_board(1, "O")
         self.board.modify_board(2, "X")
